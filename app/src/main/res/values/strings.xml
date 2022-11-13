@@ -1,5 +1,6 @@
 <resources>
     <string name="app_name">Busdown</string>
     <string name="welcome_sentence">A bump in the path can happen to anyone</string>
-    <string name="logo_description">The app logo in red color</string>
+    <string name="home_nav_item">Home</string>
+    <string name="settings_nav_item">Settings</string>
 </resources>

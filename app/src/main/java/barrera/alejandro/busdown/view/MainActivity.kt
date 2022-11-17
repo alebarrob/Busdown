@@ -1,7 +1,7 @@
-package barrera.alejandro.busdown
+package barrera.alejandro.busdown.view
 
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import androidx.appcompat.app.AppCompatActivity
 import barrera.alejandro.busdown.databinding.ActivityMainBinding
 
 class MainActivity : AppCompatActivity() {
@@ -9,10 +9,7 @@ class MainActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-
         binding = ActivityMainBinding.inflate(layoutInflater)
-        val view = binding.root
-
-        setContentView(view)
+        setContentView(binding.root)
     }
 }

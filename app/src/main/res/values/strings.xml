@@ -1,6 +1,11 @@
 <resources>
     <string name="app_name">Busdown</string>
-    <string name="welcome_sentence">A bump in the path can happen to anyone</string>
+
     <string name="home_nav_item">Home</string>
     <string name="settings_nav_item">Settings</string>
+
+    <string name="home_fragment">Home Fragment</string>
+    <string name="settings_fragment">Settings Fragment</string>
+
+    <string name="welcome_sentence_description">BusDown. A bump in the path can happen to anyone.</string>
 </resources>

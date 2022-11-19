@@ -11,7 +11,7 @@
         <action
             android:id="@+id/action_WelcomeFragment_to_basicInfoFragment"
             app:destination="@id/basicInfoFragment"
-            app:exitAnim="@anim/fade_out" />
+            app:enterAnim="@anim/fade_in" />
     </fragment>
     <fragment
         android:id="@+id/basicInfoFragment"

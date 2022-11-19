@@ -4,15 +4,73 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@drawable/image_background"
     tools:context=".view.WelcomeFragment">
 
-    <TextView
-        android:id="@+id/textView"
-        android:layout_width="wrap_content"
+    <androidx.cardview.widget.CardView
+        android:id="@+id/basic_info_sentence_card"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Basic Info"
-        app:layout_constraintBottom_toBottomOf="parent"
+        android:layout_marginHorizontal="28dp"
+        android:layout_marginTop="60dp"
+        android:layout_marginBottom="32dp"
+        android:background="@color/downBlack"
+        app:cardCornerRadius="10dp"
+        app:cardElevation="4dp"
+        app:layout_constraintBottom_toTopOf="@id/textInputLayout"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent">
+
+        <TextView
+            android:id="@+id/basic_info_sentence"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@color/downBlack"
+            android:fontFamily="@font/raleway_regular"
+            android:gravity="center"
+            android:padding="12dp"
+            android:text="@string/basic_info_sentence"
+            android:textColor="@color/white"
+            android:textSize="16sp" />
+
+    </androidx.cardview.widget.CardView>
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/textInputLayout"
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="28dp"
+        android:textColorHint="@color/white"
+        app:boxBackgroundColor="@color/downBlack"
+        app:boxStrokeColor="@color/text_input_layout_stroke_color"
+        app:boxStrokeWidth="2dp"
+        app:boxStrokeWidthFocused="2dp"
+        app:hintTextAppearance="@style/TextInputLayoutHint"
+        app:hintTextColor="@color/white"
+        app:layout_constraintBottom_toTopOf="@id/accept_button"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/basic_info_sentence_card">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="@string/emails_hint"
+            android:textColor="@color/white"
+            android:textCursorDrawable="@drawable/color_cursor" />
+
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <Button
+        android:id="@+id/accept_button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:backgroundTint="@color/downBlack"
+        android:text="@string/accept_button_text"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textInputLayout" />
 </androidx.constraintlayout.widget.ConstraintLayout>

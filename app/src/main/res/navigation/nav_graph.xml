@@ -16,5 +16,17 @@
     <fragment
         android:id="@+id/basicInfoFragment"
         android:name="barrera.alejandro.busdown.view.BasicInfoFragment"
-        android:label="BasicInfoFragment" />
+        android:label="BasicInfoFragment" >
+        <action
+            android:id="@+id/action_basicInfoFragment_to_homeFragment"
+            app:destination="@id/homeFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/homeFragment"
+        android:name="barrera.alejandro.busdown.view.HomeFragment"
+        android:label="HomeFragment" />
+    <fragment
+        android:id="@+id/settingsFragment"
+        android:name="barrera.alejandro.busdown.view.SettingsFragment"
+        android:label="SettingsFragment" />
 </navigation>

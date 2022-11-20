@@ -8,7 +8,9 @@
     <string name="settings_fragment">Settings Fragment</string>
 
     <string name="welcome_sentence_description">BusDown. A bump in the path can happen to anyone.</string>
-    <string name="basic_info_sentence">First things first! We need you to enter your team leaders and managers emails separated by commas. You can change this information at any in the app Settings. Thank you! :)</string>
+    <string name="basic_info_sentence">First things first! We need you to enter your team leaders and managers emails separated by commas. You can change this information at any moment in the app Settings. Thank you! :)</string>
     <string name="emails_hint">Write the emails here</string>
     <string name="accept_button_text">Accept</string>
+    <string name="home_label">Home</string>
+    <string name="settings_label">Settings</string>
 </resources>

@@ -4,8 +4,20 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/image_background"
+    android:background="@color/downBlack"
     tools:context=".view.WelcomeFragment">
+
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:alpha="0.2"
+        android:contentDescription="@string/background_image_content_description"
+        android:scaleType="fitXY"
+        android:src="@drawable/image_background"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
     <androidx.cardview.widget.CardView
         android:id="@+id/basic_info_sentence_card"
@@ -13,7 +25,6 @@
         android:layout_height="wrap_content"
         android:layout_marginHorizontal="28dp"
         android:layout_marginTop="60dp"
-        android:layout_marginBottom="32dp"
         android:background="@color/downBlack"
         app:cardCornerRadius="10dp"
         app:cardElevation="4dp"
@@ -42,6 +53,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginHorizontal="28dp"
+        android:layout_marginTop="60dp"
         android:textColorHint="@color/white"
         app:boxBackgroundColor="@color/downBlack"
         app:boxStrokeColor="@color/text_input_layout_stroke_color"
@@ -57,6 +69,11 @@
         <com.google.android.material.textfield.TextInputEditText
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:scrollbarSize="2dp"
+            android:scrollbarStyle="insideInset"
+            android:scrollbars="vertical"
+            android:scrollbarThumbVertical="@color/white"
+            android:maxHeight="200dp"
             android:hint="@string/emails_hint"
             android:textColor="@color/white"
             android:textCursorDrawable="@drawable/color_cursor" />
@@ -67,7 +84,7 @@
         android:id="@+id/accept_button"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
+        android:layout_marginTop="6dp"
         android:backgroundTint="@color/downBlack"
         android:text="@string/accept_button_text"
         app:layout_constraintEnd_toEndOf="parent"

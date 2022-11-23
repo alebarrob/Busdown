@@ -1,13 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
 <navigation xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/nav_graph"
     app:startDestination="@id/welcomeFragment">
 
     <fragment
         android:id="@+id/welcomeFragment"
         android:name="barrera.alejandro.busdown.view.WelcomeFragment"
-        android:label="WelcomeFragment" >
+        android:label="WelcomeFragment"
+        tools:layout="@layout/fragment_welcome" >
         <action
             android:id="@+id/action_WelcomeFragment_to_basicInfoFragment"
             app:destination="@id/basicInfoFragment"
@@ -16,7 +18,8 @@
     <fragment
         android:id="@+id/basicInfoFragment"
         android:name="barrera.alejandro.busdown.view.BasicInfoFragment"
-        android:label="BasicInfoFragment" >
+        android:label="BasicInfoFragment"
+        tools:layout="@layout/fragment_basic_info" >
         <action
             android:id="@+id/action_basicInfoFragment_to_homeFragment"
             app:destination="@id/homeFragment" />
@@ -24,9 +27,28 @@
     <fragment
         android:id="@+id/homeFragment"
         android:name="barrera.alejandro.busdown.view.HomeFragment"
-        android:label="HomeFragment" />
+        android:label="HomeFragment"
+        tools:layout="@layout/fragment_home" />
     <fragment
         android:id="@+id/settingsFragment"
         android:name="barrera.alejandro.busdown.view.SettingsFragment"
-        android:label="SettingsFragment" />
+        android:label="SettingsFragment"
+        tools:layout="@layout/fragment_settings">
+        <action
+            android:id="@+id/action_settingsFragment_to_termsAndConditionsFragment"
+            app:destination="@id/termsAndConditionsFragment" />
+        <action
+            android:id="@+id/action_settingsFragment_to_changeEmailFragment"
+            app:destination="@id/changeEmailFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/changeEmailFragment"
+        android:name="barrera.alejandro.busdown.view.ChangeEmailFragment"
+        android:label="ChangeEmailFragment"
+        tools:layout="@layout/fragment_change_email" />
+    <fragment
+        android:id="@+id/termsAndConditionsFragment"
+        android:name="barrera.alejandro.busdown.view.TermsAndConditionsFragment"
+        android:label="TermsAndConditionsFragment"
+        tools:layout="@layout/fragment_terms_and_conditions" />
 </navigation>

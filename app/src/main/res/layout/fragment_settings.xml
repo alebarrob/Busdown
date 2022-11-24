@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/dirtyWhite"
-    tools:context=".view.WelcomeFragment">
+    tools:context=".view.fragment.WelcomeFragment">
 
     <View
         android:id="@+id/separation_line_1"
@@ -25,11 +25,11 @@
         android:layout_gravity="center_vertical"
         android:layout_marginHorizontal="40dp"
         android:layout_marginBottom="20dp"
+        android:background="@drawable/settings_options_ripple"
         android:clickable="true"
         android:drawablePadding="10dp"
         android:focusable="true"
         android:fontFamily="@font/raleway_regular"
-        android:foreground="?android:attr/selectableItemBackground"
         android:foregroundGravity="fill"
         android:text="@string/modify_emails_text"
         android:textColor="@color/downRed"
@@ -40,7 +40,7 @@
         app:layout_constraintBottom_toTopOf="@id/separation_line_2"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        tools:ignore="TextContrastCheck,UnusedAttribute" />
+        tools:ignore="TouchTargetSizeCheck,TextContrastCheck" />
 
     <View
         android:id="@+id/separation_line_2"
@@ -60,11 +60,11 @@
         android:layout_gravity="center_vertical"
         android:layout_marginHorizontal="40dp"
         android:layout_marginTop="20dp"
+        android:background="@drawable/settings_options_ripple"
         android:clickable="true"
         android:drawablePadding="10dp"
         android:focusable="true"
         android:fontFamily="@font/raleway_regular"
-        android:foreground="?android:attr/selectableItemBackground"
         android:foregroundGravity="fill"
         android:text="@string/terms_text"
         android:textColor="@color/downRed"
@@ -75,8 +75,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/separation_line_2"
-        tools:ignore="TextContrastCheck,UnusedAttribute"
-        tools:targetApi="m" />
+        tools:ignore="TouchTargetSizeCheck,TextContrastCheck" />
 
     <View
         android:id="@+id/separation_line_3"

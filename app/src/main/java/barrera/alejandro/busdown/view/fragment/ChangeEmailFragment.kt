@@ -1,4 +1,4 @@
-package barrera.alejandro.busdown.view
+package barrera.alejandro.busdown.view.fragment
 
 import androidx.fragment.app.Fragment
 import barrera.alejandro.busdown.R

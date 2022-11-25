@@ -9,17 +9,17 @@
 
     <androidx.cardview.widget.CardView
         android:id="@+id/basic_info_sentence_card"
-        style="@style/blackCard"
+        style="@style/darkCard"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        app:layout_constraintBottom_toTopOf="@id/textInputLayout"
+        app:layout_constraintBottom_toTopOf="@id/basic_info_text_input_layout"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
 
         <TextView
-            android:id="@+id/basic_info_sentence"
-            style="@style/blackCardText"
+            android:id="@+id/change_email_sentence"
+            style="@style/darkCardText"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/basic_info_sentence" />
@@ -27,17 +27,17 @@
     </androidx.cardview.widget.CardView>
 
     <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/textInputLayout"
-        style="@style/addEmailTextInputLayout"
+        android:id="@+id/basic_info_text_input_layout"
+        style="@style/darkAddEmailTextInputLayout"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        app:layout_constraintBottom_toTopOf="@id/accept_button"
+        app:layout_constraintBottom_toTopOf="@id/basic_info_accept_button"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/basic_info_sentence_card">
 
         <com.google.android.material.textfield.TextInputEditText
-            style="@style/addEmailTextInputEdit"
+            style="@style/darkTextInputEdit"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="@string/emails_hint" />
@@ -45,11 +45,11 @@
     </com.google.android.material.textfield.TextInputLayout>
 
     <Button
-        android:id="@+id/accept_button"
+        android:id="@+id/basic_info_accept_button"
         style="@style/addEmailButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textInputLayout" />
+        app:layout_constraintTop_toBottomOf="@+id/basic_info_text_input_layout" />
 </androidx.constraintlayout.widget.ConstraintLayout>

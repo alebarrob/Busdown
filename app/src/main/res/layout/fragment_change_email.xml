@@ -7,13 +7,53 @@
     android:background="@color/dirtyWhite"
     tools:context=".view.fragment.WelcomeFragment" >
 
-    <TextView
-        android:id="@+id/textView"
-        android:layout_width="wrap_content"
+    <androidx.cardview.widget.CardView
+        android:id="@+id/change_email_sentence_card"
+        style="@style/darkCard"
+        android:layout_marginTop="110dp"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Change email"
-        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintBottom_toTopOf="@id/change_email_text_input_layout"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent">
+
+        <TextView
+            android:id="@+id/change_email_sentence"
+            style="@style/darkCardText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/change_email_sentence" />
+
+    </androidx.cardview.widget.CardView>
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/change_email_text_input_layout"
+        style="@style/lightAddEmailTextInputLayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toTopOf="@id/change_email_accept_button"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/change_email_sentence_card">
+
+        <com.google.android.material.textfield.TextInputEditText
+            style="@style/lightTextInputEdit"
+            android:text="ejemplo1@gmail.com, ejemplo2@gmail.com"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="@string/emails_hint"
+            tools:ignore="HardcodedText" />
+
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <Button
+        android:id="@+id/change_email_accept_button"
+        style="@style/addEmailButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/change_email_text_input_layout" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>

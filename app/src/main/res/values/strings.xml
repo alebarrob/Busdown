@@ -15,7 +15,8 @@
     <string name="home_bottom_bar_label">Home</string>
     <string name="settings_bottom_bar_label">Settings</string>
 
-    //Delete later
     <string name="modify_emails_text">Modify emails</string>
     <string name="terms_text">Terms and conditions</string>
+
+    <string name="change_email_sentence">Here you can change your team leaders and managers emails. Remember to separate them using commas.</string>
 </resources>

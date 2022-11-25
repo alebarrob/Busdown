@@ -15,10 +15,10 @@ import com.google.android.material.bottomnavigation.BottomNavigationView
 
 class MainActivity : AppCompatActivity() {
     private lateinit var binding: ActivityMainBinding
-    private lateinit var bottomNavigationBar: BottomNavigationView
     private lateinit var navHostFragment: NavHostFragment
     private lateinit var navController: NavController
     private lateinit var actionBar: ActionBar
+    private lateinit var bottomNavigationBar: BottomNavigationView
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -33,7 +33,6 @@ class MainActivity : AppCompatActivity() {
     private fun setupActionBar() {
         actionBar = supportActionBar!!
         actionBar.setDisplayHomeAsUpEnabled(true)
-        actionBar.setDisplayShowTitleEnabled(false)
         actionBar.hide()
     }
 
@@ -65,15 +64,17 @@ class MainActivity : AppCompatActivity() {
                 R.id.homeFragment -> bottomNavigationBar.isVisible = true
                 R.id.settingsFragment -> {
                     bottomNavigationBar.isVisible = true
-                    supportActionBar?.hide()
+                    actionBar.hide()
                 }
                 R.id.changeEmailFragment -> {
                     bottomNavigationBar.isVisible = false
-                    supportActionBar?.show()
+                    actionBar.title = "Modify emails"
+                    actionBar.show()
                 }
                 R.id.termsAndConditionsFragment -> {
                     bottomNavigationBar.isVisible = false
-                    supportActionBar?.show()
+                    actionBar.title = "Terms and conditions"
+                    actionBar.show()
                 }
             }
         }

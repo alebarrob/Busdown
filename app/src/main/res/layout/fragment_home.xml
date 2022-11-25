@@ -9,7 +9,7 @@
 
     <androidx.cardview.widget.CardView
         android:id="@+id/basic_info_sentence_card"
-        style="@style/blackCard"
+        style="@style/darkCard"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         app:layout_constraintEnd_toEndOf="parent"
@@ -17,8 +17,8 @@
         app:layout_constraintTop_toTopOf="parent">
 
         <TextView
-            android:id="@+id/basic_info_sentence"
-            style="@style/blackCardText"
+            android:id="@+id/change_email_sentence"
+            style="@style/darkCardText"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/send_emails_sentence" />

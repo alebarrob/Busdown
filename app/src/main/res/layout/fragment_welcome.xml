@@ -4,17 +4,17 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".view.fragment.WelcomeFragment"
-    android:background="@color/downBlack">
+    android:background="@color/downBlack"
+    tools:context=".view.fragment.WelcomeFragment">
 
     <ImageView
-        android:src="@drawable/welcome_image"
         android:id="@+id/logo"
         android:layout_width="wrap_content"
-        android:padding="25dp"
         android:layout_height="wrap_content"
+        android:contentDescription="@string/welcome_sentence_description"
+        android:padding="25dp"
+        android:src="@drawable/welcome_image"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        android:contentDescription="@string/welcome_sentence_description" />
+        app:layout_constraintTop_toTopOf="parent" />
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -9,6 +9,8 @@ import androidx.navigation.fragment.NavHostFragment
 import androidx.navigation.ui.setupWithNavController
 import barrera.alejandro.busdown.R
 import barrera.alejandro.busdown.databinding.ActivityMainBinding
+import barrera.alejandro.busdown.view.fragment.HomeFragmentDirections
+import barrera.alejandro.busdown.view.fragment.SettingsFragmentDirections
 import com.google.android.material.bottomnavigation.BottomNavigationView
 
 class MainActivity : AppCompatActivity() {
@@ -23,9 +25,16 @@ class MainActivity : AppCompatActivity() {
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
+        setupActionBar()
         setupBottomNavigationBar()
         onNavigationDestinationChanged()
-        setupActionBar()
+    }
+
+    private fun setupActionBar() {
+        actionBar = supportActionBar!!
+        actionBar.setDisplayHomeAsUpEnabled(true)
+        actionBar.setDisplayShowTitleEnabled(false)
+        actionBar.hide()
     }
 
     private fun setupBottomNavigationBar() {
@@ -34,7 +43,19 @@ class MainActivity : AppCompatActivity() {
         bottomNavigationBar = binding.bottomNavigation
         bottomNavigationBar.setupWithNavController(navController)
         bottomNavigationBar.setOnItemSelectedListener { menuItem ->
-
+            when (menuItem.itemId) {
+                R.id.homeFragment -> {
+                    if (bottomNavigationBar.selectedItemId != R.id.homeFragment) {
+                        navController.navigate(SettingsFragmentDirections.actionSettingsFragmentToHomeFragment())
+                    }
+                }
+                R.id.settingsFragment -> {
+                    if (bottomNavigationBar.selectedItemId != R.id.settingsFragment) {
+                        navController.navigate(HomeFragmentDirections.actionHomeFragmentToSettingsFragment())
+                    }
+                }
+            }
+            true
         }
     }
 
@@ -56,13 +77,6 @@ class MainActivity : AppCompatActivity() {
                 }
             }
         }
-    }
-
-    private fun setupActionBar() {
-        actionBar = supportActionBar!!
-        actionBar.setDisplayHomeAsUpEnabled(true)
-        actionBar.setDisplayShowTitleEnabled(false)
-        actionBar.hide()
     }
 
     override fun onSupportNavigateUp(): Boolean {

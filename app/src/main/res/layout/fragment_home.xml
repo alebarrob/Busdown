@@ -4,46 +4,24 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/downBlack"
+    android:background="@color/transparent"
     tools:context=".view.fragment.WelcomeFragment">
-
-    <ImageView
-        android:id="@+id/imageView"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:alpha="0.2"
-        android:contentDescription="@string/background_image_content_description"
-        android:scaleType="fitXY"
-        android:src="@drawable/image_background"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
 
     <androidx.cardview.widget.CardView
         android:id="@+id/basic_info_sentence_card"
+        style="@style/blackCard"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginHorizontal="28dp"
-        android:layout_marginTop="60dp"
-        android:background="@color/downBlack"
-        app:cardCornerRadius="10dp"
-        app:cardElevation="4dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
 
         <TextView
             android:id="@+id/basic_info_sentence"
+            style="@style/blackCardText"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:background="@color/downBlack"
-            android:fontFamily="@font/raleway_regular"
-            android:gravity="center"
-            android:padding="12dp"
-            android:text="@string/send_emails_sentence"
-            android:textColor="@color/white"
-            android:textSize="16sp" />
+            android:text="@string/send_emails_sentence" />
 
     </androidx.cardview.widget.CardView>
 
@@ -51,13 +29,12 @@
         android:id="@+id/button_send_emails"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:backgroundTint="@color/downRed"
         android:text="@string/send_emails_button_text"
         android:textSize="22sp"
-        android:backgroundTint="@color/downRed"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
-
 
 </androidx.constraintlayout.widget.ConstraintLayout>

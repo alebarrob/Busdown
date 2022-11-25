@@ -4,30 +4,14 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/downBlack"
+    android:background="@color/transparent"
     tools:context=".view.fragment.WelcomeFragment">
-
-    <ImageView
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:alpha="0.2"
-        android:contentDescription="@string/background_image_content_description"
-        android:scaleType="fitXY"
-        android:src="@drawable/image_background"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
 
     <androidx.cardview.widget.CardView
         android:id="@+id/basic_info_sentence_card"
+        style="@style/blackCard"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginHorizontal="28dp"
-        android:layout_marginTop="60dp"
-        android:background="@color/downBlack"
-        app:cardCornerRadius="10dp"
-        app:cardElevation="4dp"
         app:layout_constraintBottom_toTopOf="@id/textInputLayout"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -35,58 +19,36 @@
 
         <TextView
             android:id="@+id/basic_info_sentence"
+            style="@style/blackCardText"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:background="@color/downBlack"
-            android:fontFamily="@font/raleway_regular"
-            android:gravity="center"
-            android:padding="12dp"
-            android:text="@string/basic_info_sentence"
-            android:textColor="@color/white"
-            android:textSize="16sp" />
+            android:text="@string/basic_info_sentence" />
 
     </androidx.cardview.widget.CardView>
 
     <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/textInputLayout"
-        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+        style="@style/addEmailTextInputLayout"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginHorizontal="28dp"
-        android:layout_marginTop="60dp"
-        android:textColorHint="@color/white"
-        app:boxBackgroundColor="@color/downBlack"
-        app:boxStrokeColor="@color/text_input_layout_stroke_color"
-        app:boxStrokeWidth="2dp"
-        app:boxStrokeWidthFocused="2dp"
-        app:hintTextAppearance="@style/TextInputLayoutHint"
-        app:hintTextColor="@color/white"
         app:layout_constraintBottom_toTopOf="@id/accept_button"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/basic_info_sentence_card">
 
         <com.google.android.material.textfield.TextInputEditText
+            style="@style/addEmailTextInputEdit"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:scrollbarSize="2dp"
-            android:scrollbarStyle="insideInset"
-            android:scrollbars="vertical"
-            android:scrollbarThumbVertical="@color/white"
-            android:maxHeight="200dp"
-            android:hint="@string/emails_hint"
-            android:textColor="@color/white"
-            android:textCursorDrawable="@drawable/color_cursor" />
+            android:hint="@string/emails_hint" />
 
     </com.google.android.material.textfield.TextInputLayout>
 
     <Button
         android:id="@+id/accept_button"
+        style="@style/addEmailButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="6dp"
-        android:backgroundTint="@color/downBlack"
-        android:text="@string/accept_button_text"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textInputLayout" />

@@ -1,7 +1,76 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
+    <style name="blackCard">
+        <item name="android:layout_marginTop">60dp</item>
+        <item name="android:background">@color/downBlack</item>
+        <item name="cardCornerRadius">10dp</item>
+        <item name="cardElevation">4dp</item>
+        <item name="android:layout_marginStart">28dp</item>
+        <item name="android:layout_marginEnd">28dp</item>
+    </style>
+
+    <style name="blackCardText">
+        <item name="android:background">@color/downBlack</item>
+        <item name="android:fontFamily">@font/raleway_regular</item>
+        <item name="android:gravity">center</item>
+        <item name="android:padding">12dp</item>
+        <item name="android:textColor">@color/white</item>
+        <item name="android:textSize">16sp</item>
+    </style>
+
+    <style name="addEmailTextInputEdit">
+        <item name="android:maxHeight">200dp</item>
+        <item name="android:scrollbarSize">2dp</item>
+        <item name="android:scrollbarStyle">insideInset</item>
+        <item name="android:scrollbarThumbVertical">@color/white</item>
+        <item name="android:scrollbars">vertical</item>
+        <item name="android:textColor">@color/white</item>
+        <item name="android:textCursorDrawable">@drawable/color_cursor</item>
+    </style>
+
+    <style name="addEmailTextInputLayout" parent="Widget.MaterialComponents.TextInputLayout.OutlinedBox">
+        <item name="android:layout_marginStart">28dp</item>
+        <item name="android:layout_marginEnd">28dp</item>
+        <item name="android:layout_marginTop">60dp</item>
+        <item name="android:textColorHint">@color/white</item>
+        <item name="boxBackgroundColor">@color/downBlack</item>
+        <item name="boxStrokeColor">@color/text_input_layout_stroke_color</item>
+        <item name="boxStrokeWidth">2dp</item>
+        <item name="boxStrokeWidthFocused">2dp</item>
+        <item name="boxStrokeErrorColor">@color/downRed</item>
+        <item name="hintTextAppearance">@style/TextInputLayoutHint</item>
+        <item name="hintTextColor">@color/white</item>
+    </style>
+
     <style name="TextInputLayoutHint" parent="Widget.MaterialComponents.TextInputLayout.OutlinedBox">
         <item name="android:textSize">16sp</item>
+    </style>
+
+    <style name="addEmailButton">
+        <item name="android:layout_marginTop">6dp</item>
+        <item name="backgroundTint">@color/downBlack</item>
+        <item name="android:text">@string/accept_button_text</item>
+    </style>
+
+    <style name="separationLine">
+        <item name="android:layout_marginStart">30dp</item>
+        <item name="android:layout_marginEnd">30dp</item>
+        <item name="android:background">@color/downGrey</item>
+    </style>
+
+    <style name="settingsOption">
+        <item name="android:layout_marginStart">20dp</item>
+        <item name="android:layout_marginEnd">20dp</item>
+        <item name="android:background">@drawable/settings_options_ripple</item>
+        <item name="android:clickable">true</item>
+        <item name="android:drawablePadding">10dp</item>
+        <item name="android:focusable">true</item>
+        <item name="android:fontFamily">@font/raleway_regular</item>
+        <item name="android:foregroundGravity">fill</item>
+        <item name="android:textColor">@color/downRed</item>
+        <item name="android:textSize">20sp</item>
+        <item name="drawableEndCompat">@drawable/ic_right_arrow</item>
+        <item name="drawableTint">@color/downRed</item>
     </style>
 </resources>

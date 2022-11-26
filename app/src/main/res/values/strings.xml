@@ -1,4 +1,4 @@
-<resources>
+<resources xmlns:tools="http://schemas.android.com/tools">
     <string name="app_name">Busdown</string>
 
     <string name="background_image_content_description">Background image with a bus stop</string>
@@ -19,4 +19,6 @@
     <string name="terms_text">Terms and conditions</string>
 
     <string name="change_email_sentence">Here you can change your team leaders and managers emails. Remember to separate them using commas.</string>
+
+    <string name="emails_incorrect_format" tools:ignore="Typos">Incorrect format. Remember to separate each email with commas, e.g. email1@gmail.com, email2@gmail.com</string>
 </resources>

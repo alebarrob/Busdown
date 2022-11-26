@@ -12,22 +12,29 @@ import barrera.alejandro.busdown.databinding.ActivityMainBinding
 import barrera.alejandro.busdown.view.fragment.HomeFragmentDirections
 import barrera.alejandro.busdown.view.fragment.SettingsFragmentDirections
 import com.google.android.material.bottomnavigation.BottomNavigationView
+import dagger.hilt.android.AndroidEntryPoint
 
+@AndroidEntryPoint
 class MainActivity : AppCompatActivity() {
     private lateinit var binding: ActivityMainBinding
+    private lateinit var bottomNavigationBar: BottomNavigationView
     private lateinit var navHostFragment: NavHostFragment
     private lateinit var navController: NavController
     private lateinit var actionBar: ActionBar
-    private lateinit var bottomNavigationBar: BottomNavigationView
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityMainBinding.inflate(layoutInflater)
+        setupViewBinding()
         setContentView(binding.root)
 
         setupActionBar()
         setupBottomNavigationBar()
         onNavigationDestinationChanged()
+    }
+
+    private fun setupViewBinding() {
+        bottomNavigationBar = binding.bottomNavigation
     }
 
     private fun setupActionBar() {
@@ -39,7 +46,6 @@ class MainActivity : AppCompatActivity() {
     private fun setupBottomNavigationBar() {
         navHostFragment = supportFragmentManager.findFragmentById(R.id.nav_host_fragment) as NavHostFragment
         navController = navHostFragment.navController
-        bottomNavigationBar = binding.bottomNavigation
         bottomNavigationBar.setupWithNavController(navController)
         bottomNavigationBar.setOnItemSelectedListener { menuItem ->
             when (menuItem.itemId) {

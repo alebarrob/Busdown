@@ -5,19 +5,20 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Button
-import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.activityViewModels
 import androidx.navigation.findNavController
-import barrera.alejandro.busdown.R
 import barrera.alejandro.busdown.databinding.FragmentBasicInfoBinding
+import barrera.alejandro.busdown.model.enum.Error
 import barrera.alejandro.busdown.viewmodel.BasicInfoViewModel
 import com.google.android.material.textfield.TextInputEditText
+import com.google.android.material.textfield.TextInputLayout
 
 class BasicInfoFragment : Fragment() {
     private val basicInfoViewModel: BasicInfoViewModel by activityViewModels()
     private lateinit var binding: FragmentBasicInfoBinding
     private lateinit var basicInfoAcceptButton: Button
+    private lateinit var basicInfoTextInputLayout: TextInputLayout
     private lateinit var basicInfoTextInputEditText: TextInputEditText
 
     override fun onCreateView(
@@ -33,22 +34,26 @@ class BasicInfoFragment : Fragment() {
     private fun setupViewBinding() {
         basicInfoAcceptButton = binding.basicInfoAcceptButton
         basicInfoTextInputEditText = binding.basicInfoTextInputEditText
+        basicInfoTextInputLayout = binding.basicInfoTextInputLayout
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+
         onClickAcceptButton()
     }
 
     private fun onClickAcceptButton() {
         basicInfoAcceptButton.setOnClickListener { view ->
-            val emails = basicInfoTextInputEditText.text.toString()
+            val unformattedEmails = basicInfoTextInputEditText.text.toString()
+            val emails = basicInfoViewModel.formatEmails(unformattedEmails)
             val action = BasicInfoFragmentDirections.actionBasicInfoFragmentToHomeFragment()
 
             if (basicInfoViewModel.emailsFormatIsCorrect(emails)) {
+                basicInfoViewModel.insertEmails(emails)
                 view?.findNavController()?.navigate(action)
             } else {
-                Toast.makeText(context, R.string.emails_incorrect_format, Toast.LENGTH_LONG).show()
+                basicInfoTextInputLayout.error = Error.INCORRECT_EMAIL_FORMAT.message
             }
         }
     }

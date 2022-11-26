@@ -29,8 +29,8 @@ class WelcomeFragment : Fragment() {
     }
 
     private fun navigateToBasicInfoFragmentAfterDelay() {
-        Handler(Looper.getMainLooper()).postDelayed( {
-            view?.findNavController()?.navigate(
+        Handler(Looper.getMainLooper()).postDelayed(
+            { view?.findNavController()?.navigate(
                 WelcomeFragmentDirections.actionWelcomeFragmentToBasicInfoFragment()
             ) },
             2000

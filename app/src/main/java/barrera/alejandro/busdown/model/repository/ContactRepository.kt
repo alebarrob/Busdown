@@ -4,7 +4,9 @@ import barrera.alejandro.busdown.model.entity.Contact
 import kotlinx.coroutines.flow.Flow
 
 interface ContactRepository {
-    val contacts: Flow<List<Contact>>
+    val emails: Flow<List<String>>
 
-    fun insertContact(contact: Contact)
+    suspend fun insertAllContacts(contacts: List<Contact>)
+    suspend fun insertContact(contact: Contact)
+    suspend fun deleteAllContacts()
 }

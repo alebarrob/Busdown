@@ -19,18 +19,22 @@ class TermsAndConditionsFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View {
         binding = FragmentTermsAndConditionsBinding.inflate(inflater, container, false)
+        setupViewBinding()
         return binding.root
+    }
+
+    private fun setupViewBinding() {
+        termAndConditionsTextView = binding.termsAndConditionsTextview
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        setupTermAndConditionsTextView()
+        setupTermsAndConditionsScrolling()
         loadTermsAndConditions()
     }
 
-    private fun setupTermAndConditionsTextView() {
-        termAndConditionsTextView = binding.termsAndConditionsTextview
+    private fun setupTermsAndConditionsScrolling() {
         termAndConditionsTextView.movementMethod = ScrollingMovementMethod()
     }
 

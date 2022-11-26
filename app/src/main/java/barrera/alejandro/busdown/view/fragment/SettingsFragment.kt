@@ -20,24 +20,20 @@ class SettingsFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View {
         binding = FragmentSettingsBinding.inflate(inflater, container, false)
+        setupViewBinding()
         return binding.root
+    }
+
+    private fun setupViewBinding() {
+        modifyEmailsText = binding.modifyEmailsText
+        termsAndConditionsText = binding.termsAndConditionsText
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        setupEmailsText()
-        setupTermsAndConditionsText()
         onClickModifyEmailButton()
         onClickTermsAndConditionsButton()
-    }
-
-    private fun setupEmailsText() {
-        modifyEmailsText = binding.modifyEmailsText
-    }
-
-    private fun setupTermsAndConditionsText() {
-        termsAndConditionsText = binding.termsAndConditionsText
     }
 
     private fun onClickModifyEmailButton() {

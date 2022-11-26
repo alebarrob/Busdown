@@ -8,7 +8,9 @@ import javax.inject.Inject
 class ContactRepositoryImpl @Inject constructor(
     private val contactDao: ContactDao
 ) : ContactRepository {
-    override val contacts: Flow<List<Contact>> get() = contactDao.getContacts()
+    override val emails: Flow<List<String>> get() = contactDao.getEmails()
 
-    override fun insertContact(contact: Contact) = contactDao.insertContact(contact)
+    override suspend fun insertAllContacts(contacts: List<Contact>) = contactDao.insertAllContacts(contacts)
+    override suspend fun insertContact(contact: Contact) = contactDao.insertContact(contact)
+    override suspend fun deleteAllContacts() = contactDao.deleteAllContacts()
 }

@@ -24,9 +24,7 @@ object AppModule {
         context,
         BusdownRoomDatabase::class.java,
         "busdown_database"
-    ).fallbackToDestructiveMigration()
-        .createFromAsset("database/busdown_database.db")
-        .build()
+    ).createFromAsset("database/busdown_database.db").build()
 
     @Singleton
     @Provides

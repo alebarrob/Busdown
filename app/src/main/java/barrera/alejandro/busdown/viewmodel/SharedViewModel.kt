@@ -10,7 +10,7 @@ import javax.inject.Inject
 
 @HiltViewModel
 class SharedViewModel @Inject constructor(
-    private val contactRepositoryImpl: ContactRepositoryImpl
+    private val contactRepositoryImpl: ContactRepositoryImpl,
 ) : ViewModel() {
     val emails = contactRepositoryImpl.emails
 

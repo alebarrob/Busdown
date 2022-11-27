@@ -13,7 +13,7 @@ import barrera.alejandro.busdown.databinding.FragmentWelcomeBinding
 
 class WelcomeFragment : Fragment() {
     private lateinit var binding: FragmentWelcomeBinding
-    private val navigationTest = false
+    private val navigationTest = true
 
     override fun onCreateView(
         inflater: LayoutInflater,

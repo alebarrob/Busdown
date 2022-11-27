@@ -26,7 +26,7 @@
     </androidx.cardview.widget.CardView>
 
     <Button
-        android:id="@+id/button_send_emails"
+        android:id="@+id/send_email_button"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:backgroundTint="@color/downRed"

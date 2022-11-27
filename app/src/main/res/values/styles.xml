@@ -22,7 +22,7 @@
     <style name="darkAddEmailTextInputLayout" parent="Widget.MaterialComponents.TextInputLayout.OutlinedBox">
         <item name="android:layout_marginStart">28dp</item>
         <item name="android:layout_marginEnd">28dp</item>
-        <item name="android:layout_marginTop">60dp</item>
+        <item name="android:layout_marginTop">80dp</item>
         <item name="android:textColorHint">@color/white</item>
         <item name="boxBackgroundColor">@color/downBlack</item>
         <item name="errorEnabled">true</item>
@@ -47,7 +47,7 @@
     <style name="lightAddEmailTextInputLayout" parent="Widget.MaterialComponents.TextInputLayout.OutlinedBox">
         <item name="android:layout_marginStart">28dp</item>
         <item name="android:layout_marginEnd">28dp</item>
-        <item name="android:layout_marginTop">60dp</item>
+        <item name="android:layout_marginTop">80dp</item>
         <item name="android:textColorHint">@color/downBlack</item>
         <item name="boxBackgroundColor">@color/white</item>
         <item name="errorEnabled">true</item>
@@ -74,7 +74,6 @@
     </style>
 
     <style name="addEmailButton">
-        <item name="android:layout_marginTop">6dp</item>
         <item name="backgroundTint">@color/downBlack</item>
         <item name="android:text">@string/accept_button_text</item>
     </style>

@@ -10,12 +10,12 @@ import androidx.fragment.app.activityViewModels
 import androidx.navigation.findNavController
 import barrera.alejandro.busdown.databinding.FragmentBasicInfoBinding
 import barrera.alejandro.busdown.model.enum.Error
-import barrera.alejandro.busdown.viewmodel.BusdownViewModel
+import barrera.alejandro.busdown.viewmodel.SharedViewModel
 import com.google.android.material.textfield.TextInputEditText
 import com.google.android.material.textfield.TextInputLayout
 
 class BasicInfoFragment : Fragment() {
-    private val busdownViewModel: BusdownViewModel by activityViewModels()
+    private val basicInfoViewModel: SharedViewModel by activityViewModels()
     private lateinit var binding: FragmentBasicInfoBinding
     private lateinit var basicInfoAcceptButton: Button
     private lateinit var basicInfoTextInputLayout: TextInputLayout
@@ -46,11 +46,12 @@ class BasicInfoFragment : Fragment() {
     private fun onClickAcceptButton() {
         basicInfoAcceptButton.setOnClickListener { view ->
             val unformattedEmails = basicInfoTextInputEditText.text.toString()
-            val emails = busdownViewModel.formatEmails(unformattedEmails)
+            val emails = basicInfoViewModel.formatEmails(unformattedEmails)
             val action = BasicInfoFragmentDirections.actionBasicInfoFragmentToHomeFragment()
 
-            if (busdownViewModel.emailsFormatIsCorrect(emails)) {
-                busdownViewModel.insertEmails(emails)
+            if (basicInfoViewModel.emailsFormatIsCorrect(emails)) {
+                basicInfoViewModel.insertEmails(emails)
+                basicInfoTextInputLayout.isErrorEnabled = false
                 view?.findNavController()?.navigate(action)
             } else {
                 basicInfoTextInputLayout.error = Error.INCORRECT_EMAIL_FORMAT.message

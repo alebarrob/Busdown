@@ -12,13 +12,13 @@ import androidx.lifecycle.lifecycleScope
 import androidx.lifecycle.repeatOnLifecycle
 import barrera.alejandro.busdown.databinding.FragmentChangeEmailBinding
 import barrera.alejandro.busdown.model.enum.Error
-import barrera.alejandro.busdown.viewmodel.BusdownViewModel
+import barrera.alejandro.busdown.viewmodel.SharedViewModel
 import com.google.android.material.textfield.TextInputEditText
 import com.google.android.material.textfield.TextInputLayout
 import kotlinx.coroutines.launch
 
 class ChangeEmailFragment : Fragment() {
-    private val busdownViewModel: BusdownViewModel by activityViewModels()
+    private val changeEmailViewModel: SharedViewModel by activityViewModels()
     private lateinit var binding: FragmentChangeEmailBinding
     private lateinit var changeEmailTextInputLayout: TextInputLayout
     private lateinit var changeEmailTextInputEditText: TextInputEditText
@@ -50,7 +50,7 @@ class ChangeEmailFragment : Fragment() {
     private fun loadEmails() {
         lifecycleScope.launch {
             viewLifecycleOwner.repeatOnLifecycle(Lifecycle.State.STARTED) {
-                busdownViewModel.emails.collect { data ->
+                changeEmailViewModel.emails.collect { data ->
                     binding.changeEmailTextInputEditText.setText(data.joinToString())
                 }
             }
@@ -60,11 +60,12 @@ class ChangeEmailFragment : Fragment() {
     private fun onClickAcceptButton() {
         changeEmailAcceptButton.setOnClickListener {
             val unformattedEmails = changeEmailTextInputEditText.text.toString()
-            val emails = busdownViewModel.formatEmails(unformattedEmails)
+            val emails = changeEmailViewModel.formatEmails(unformattedEmails)
 
-            if (busdownViewModel.emailsFormatIsCorrect(emails)) {
-                busdownViewModel.deleteAllContactsExceptBusUp()
-                busdownViewModel.insertEmails(emails)
+            if (changeEmailViewModel.emailsFormatIsCorrect(emails)) {
+                changeEmailViewModel.deleteAllContactsExceptBusUp()
+                changeEmailViewModel.insertEmails(emails)
+                changeEmailTextInputLayout.isErrorEnabled = false
             } else {
                 changeEmailTextInputLayout.error = Error.INCORRECT_EMAIL_FORMAT.message
             }

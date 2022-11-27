@@ -11,6 +11,5 @@ class ContactRepositoryImpl @Inject constructor(
     override val emails: Flow<List<String>> get() = contactDao.getEmails()
 
     override suspend fun insertAllContacts(contacts: List<Contact>) = contactDao.insertAllContacts(contacts)
-    override suspend fun insertContact(contact: Contact) = contactDao.insertContact(contact)
-    override suspend fun deleteAllContacts() = contactDao.deleteAllContacts()
+    override suspend fun deleteAllContactsExceptBusUp() = contactDao.deleteAllContactsExceptBusUp()
 }

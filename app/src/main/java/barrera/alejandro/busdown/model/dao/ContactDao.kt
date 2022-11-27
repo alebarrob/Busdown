@@ -13,11 +13,8 @@ interface ContactDao {
     fun getEmails(): Flow<List<String>>
 
     @Insert(onConflict = IGNORE)
-    suspend fun insertContact(contact: Contact)
-
-    @Insert(onConflict = IGNORE)
     suspend fun insertAllContacts(contact: List<Contact>)
 
-    @Query("DELETE FROM contacts")
-    suspend fun deleteAllContacts()
+    @Query("DELETE FROM contacts WHERE id <> 1")
+    suspend fun deleteAllContactsExceptBusUp()
 }

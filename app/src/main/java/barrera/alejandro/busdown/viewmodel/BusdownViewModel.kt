@@ -9,9 +9,18 @@ import kotlinx.coroutines.launch
 import javax.inject.Inject
 
 @HiltViewModel
-class BasicInfoViewModel @Inject constructor(
+class BusdownViewModel @Inject constructor(
     private val contactRepositoryImpl: ContactRepositoryImpl
 ) : ViewModel() {
+    val emails = contactRepositoryImpl.emails
+
+    fun insertEmails(emails: List<String>) {
+        val contacts = emails.map { Contact(0, it) }
+
+        viewModelScope.launch {
+            contactRepositoryImpl.insertAllContacts(contacts)
+        }
+    }
 
     fun formatEmails(unformattedEmails: String): List<String> {
         return unformattedEmails.replace(" ", "").split(",")
@@ -25,11 +34,9 @@ class BasicInfoViewModel @Inject constructor(
         return true
     }
 
-    fun insertEmails(emails: List<String>) {
-        val contacts = emails.map { Contact(0, it) }
-
+    fun deleteAllContactsExceptBusUp() {
         viewModelScope.launch {
-            contactRepositoryImpl.insertAllContacts(contacts)
+            contactRepositoryImpl.deleteAllContactsExceptBusUp()
         }
     }
 }

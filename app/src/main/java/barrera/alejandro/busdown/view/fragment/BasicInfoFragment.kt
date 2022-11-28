@@ -51,6 +51,7 @@ class BasicInfoFragment : Fragment() {
             if (basicInfoViewModel.emailsFormatIsCorrect(emails)) {
                 basicInfoViewModel.insertEmails(emails)
                 basicInfoTextInputLayout.isErrorEnabled = false
+                basicInfoViewModel.setShowBasicInfoFragment(false)
                 view?.findNavController()?.navigate(action)
             } else {
                 basicInfoTextInputLayout.error = Error.INCORRECT_EMAIL_FORMAT.message

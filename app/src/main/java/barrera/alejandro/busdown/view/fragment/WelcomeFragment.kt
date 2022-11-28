@@ -35,7 +35,6 @@ class WelcomeFragment : Fragment() {
     private fun onConditionalNavigation() {
         welcomeViewModel.showBasicInfoFragment.observe(viewLifecycleOwner) { showBasicInfofragment ->
             if (showBasicInfofragment) {
-                welcomeViewModel.setShowBasicInfoFragment(false)
                 navigateAfterDelay(WelcomeFragmentDirections.actionWelcomeFragmentToBasicInfoFragment())
             } else {
                 navigateAfterDelay(WelcomeFragmentDirections.actionWelcomeFragmentToHomeFragment())

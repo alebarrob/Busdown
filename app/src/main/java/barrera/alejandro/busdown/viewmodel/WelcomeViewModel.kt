@@ -10,13 +10,7 @@ import javax.inject.Inject
 
 @HiltViewModel
 class WelcomeViewModel @Inject constructor(
-    private val preferenceStorageImpl: PreferenceStorage
+    preferenceStorageImpl: PreferenceStorage
 ) : ViewModel() {
     val showBasicInfoFragment = preferenceStorageImpl.savedKey().asLiveData()
-
-    fun setShowBasicInfoFragment(key: Boolean) {
-        viewModelScope.launch {
-            preferenceStorageImpl.setSavedKey(key)
-        }
-    }
 }

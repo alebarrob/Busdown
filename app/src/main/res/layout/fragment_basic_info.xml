@@ -7,6 +7,18 @@
     android:background="@color/transparent"
     tools:context=".view.fragment.WelcomeFragment">
 
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:alpha="0.2"
+        android:contentDescription="@string/background_image_content_description"
+        android:scaleType="fitXY"
+        android:src="@drawable/image_background"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
     <androidx.cardview.widget.CardView
         android:id="@+id/basic_info_sentence_card"
         style="@style/darkCard"

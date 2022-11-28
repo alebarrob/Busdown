@@ -10,12 +10,12 @@ import androidx.fragment.app.activityViewModels
 import androidx.navigation.findNavController
 import barrera.alejandro.busdown.databinding.FragmentBasicInfoBinding
 import barrera.alejandro.busdown.model.enum.Error
-import barrera.alejandro.busdown.viewmodel.SharedViewModel
+import barrera.alejandro.busdown.viewmodel.BasicInfoViewModel
 import com.google.android.material.textfield.TextInputEditText
 import com.google.android.material.textfield.TextInputLayout
 
 class BasicInfoFragment : Fragment() {
-    private val basicInfoViewModel: SharedViewModel by activityViewModels()
+    private val basicInfoViewModel: BasicInfoViewModel by activityViewModels()
     private lateinit var binding: FragmentBasicInfoBinding
     private lateinit var basicInfoAcceptButton: Button
     private lateinit var basicInfoTextInputLayout: TextInputLayout
@@ -39,7 +39,6 @@ class BasicInfoFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-
         onClickAcceptButton()
     }
 

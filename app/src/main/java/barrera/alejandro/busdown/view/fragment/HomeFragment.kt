@@ -16,11 +16,11 @@ import androidx.lifecycle.Lifecycle
 import androidx.lifecycle.lifecycleScope
 import androidx.lifecycle.repeatOnLifecycle
 import barrera.alejandro.busdown.databinding.FragmentHomeBinding
-import barrera.alejandro.busdown.viewmodel.SharedViewModel
+import barrera.alejandro.busdown.viewmodel.HomeViewModel
 import kotlinx.coroutines.launch
 
 class HomeFragment : Fragment() {
-    private val homeFragmentViewModel: SharedViewModel by activityViewModels()
+    private val homeViewModel: HomeViewModel by activityViewModels()
     private lateinit var binding: FragmentHomeBinding
     private lateinit var sendEmailButton: Button
 
@@ -40,7 +40,6 @@ class HomeFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-
         onClickSendEmailsButton()
     }
 
@@ -53,7 +52,7 @@ class HomeFragment : Fragment() {
     private fun sendEmail() {
         lifecycleScope.launch {
             viewLifecycleOwner.repeatOnLifecycle(Lifecycle.State.STARTED) {
-                homeFragmentViewModel.emails.collect { data ->
+                homeViewModel.emails.collect { data ->
                     context?.sendEmail(data)
                 }
             }
@@ -76,9 +75,9 @@ class HomeFragment : Fragment() {
             emailIntent.selector = emailSelectorIntent
             startActivity(emailIntent)
         } catch (e: ActivityNotFoundException) {
-            Toast.makeText(this, "La aplicación seleccionada no está disponible", Toast.LENGTH_SHORT).show()
+            Toast.makeText(this, "The selected application is not available", Toast.LENGTH_SHORT).show()
         } catch (t: Throwable) {
-            Toast.makeText(this, "Se ha producido un error", Toast.LENGTH_SHORT).show()
+            Toast.makeText(this, "An error has occurred", Toast.LENGTH_SHORT).show()
         }
     }
 }

@@ -26,7 +26,6 @@ class WelcomeFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-
         onConditionalNavigation()
     }
 
@@ -43,7 +42,7 @@ class WelcomeFragment : Fragment() {
             { view?.findNavController()?.navigate(
                 directions
             ) },
-            2000
+            3000
         )
     }
 }

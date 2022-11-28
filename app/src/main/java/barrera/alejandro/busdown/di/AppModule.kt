@@ -6,6 +6,8 @@ import barrera.alejandro.busdown.model.database.BusdownRoomDatabase
 import barrera.alejandro.busdown.model.dao.ContactDao
 import barrera.alejandro.busdown.model.repository.ContactRepository
 import barrera.alejandro.busdown.model.repository.ContactRepositoryImpl
+import barrera.alejandro.busdown.viewmodel.EmailFormatter
+import barrera.alejandro.busdown.viewmodel.EmailValidator
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
@@ -33,4 +35,10 @@ object AppModule {
     @Singleton
     @Provides
     fun contactRepositoryImpl(contactDao: ContactDao): ContactRepository = ContactRepositoryImpl(contactDao)
+
+    @Provides
+    fun emailFormatter() = EmailFormatter()
+
+    @Provides
+    fun emailValidator() = EmailValidator()
 }

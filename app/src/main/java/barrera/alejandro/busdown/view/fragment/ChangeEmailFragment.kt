@@ -13,13 +13,13 @@ import androidx.lifecycle.lifecycleScope
 import androidx.lifecycle.repeatOnLifecycle
 import barrera.alejandro.busdown.databinding.FragmentChangeEmailBinding
 import barrera.alejandro.busdown.model.enum.Error
-import barrera.alejandro.busdown.viewmodel.SharedViewModel
+import barrera.alejandro.busdown.viewmodel.ChangeEmailViewModel
 import com.google.android.material.textfield.TextInputEditText
 import com.google.android.material.textfield.TextInputLayout
 import kotlinx.coroutines.launch
 
 class ChangeEmailFragment : Fragment() {
-    private val changeEmailViewModel: SharedViewModel by activityViewModels()
+    private val changeEmailViewModel: ChangeEmailViewModel by activityViewModels()
     private lateinit var binding: FragmentChangeEmailBinding
     private lateinit var changeEmailTextInputLayout: TextInputLayout
     private lateinit var changeEmailTextInputEditText: TextInputEditText

@@ -7,13 +7,15 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
+import androidx.fragment.app.activityViewModels
 import androidx.navigation.NavDirections
 import androidx.navigation.findNavController
 import barrera.alejandro.busdown.databinding.FragmentWelcomeBinding
+import barrera.alejandro.busdown.viewmodel.WelcomeViewModel
 
 class WelcomeFragment : Fragment() {
+    private val welcomeViewModel: WelcomeViewModel by activityViewModels()
     private lateinit var binding: FragmentWelcomeBinding
-    private val navigationTest = true
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -26,14 +28,18 @@ class WelcomeFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+
         onConditionalNavigation()
     }
 
     private fun onConditionalNavigation() {
-        if (navigationTest) {
-            navigateAfterDelay(WelcomeFragmentDirections.actionWelcomeFragmentToBasicInfoFragment())
-        } else {
-            navigateAfterDelay(WelcomeFragmentDirections.actionWelcomeFragmentToHomeFragment())
+        welcomeViewModel.showBasicInfoFragment.observe(viewLifecycleOwner) { showBasicInfofragment ->
+            if (showBasicInfofragment) {
+                welcomeViewModel.setShowBasicInfoFragment(false)
+                navigateAfterDelay(WelcomeFragmentDirections.actionWelcomeFragmentToBasicInfoFragment())
+            } else {
+                navigateAfterDelay(WelcomeFragmentDirections.actionWelcomeFragmentToHomeFragment())
+            }
         }
     }
 

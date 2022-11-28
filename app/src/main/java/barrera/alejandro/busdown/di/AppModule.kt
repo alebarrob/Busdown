@@ -2,8 +2,8 @@ package barrera.alejandro.busdown.di
 
 import android.content.Context
 import androidx.room.Room
-import barrera.alejandro.busdown.model.database.BusdownRoomDatabase
 import barrera.alejandro.busdown.model.dao.ContactDao
+import barrera.alejandro.busdown.model.database.BusdownRoomDatabase
 import barrera.alejandro.busdown.model.repository.ContactRepository
 import barrera.alejandro.busdown.model.repository.ContactRepositoryImpl
 import barrera.alejandro.busdown.viewmodel.EmailFormatter

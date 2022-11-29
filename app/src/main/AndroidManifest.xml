@@ -2,6 +2,18 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools">
 
+    <permission
+        android:name="android.permission.ACCESS_COARSE_LOCATION"
+        android:protectionLevel="dangerous"
+        android:label="@string/coarse_location_label"
+        android:description="@string/coarse_location_description"/>
+    <permission
+        android:name="android.permission.ACCESS_FINE_LOCATION"
+        android:protectionLevel="dangerous"
+        android:label="@string/fine_location_label"
+        android:description="@string/fine_location_description"/>
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION"/>
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION"/>
     <application
         android:name=".application.BusdownApp"
         android:allowBackup="true"
@@ -13,6 +25,9 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Busdown"
         tools:targetApi="31">
+        <service
+            android:name=".view.activity.MainActivity"
+            android:foregroundServiceType="location" />
         <activity
             android:name=".view.activity.MainActivity"
             android:windowSoftInputMode="adjustPan"

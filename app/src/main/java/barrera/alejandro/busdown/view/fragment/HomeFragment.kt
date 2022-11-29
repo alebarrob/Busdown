@@ -50,28 +50,6 @@ class HomeFragment : Fragment() {
         sendEmailButton = binding.sendEmailButton
     }
 
-    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-        super.onViewCreated(view, savedInstanceState)
-
-        onClickSendEmailsButton()
-    }
-
-    private fun onClickSendEmailsButton() {
-        sendEmailButton.setOnClickListener {
-            getLastLocation()
-        }
-    }
-
-    private fun sendEmail(googleMapsLocationUrl: String?) {
-        lifecycleScope.launch {
-            viewLifecycleOwner.repeatOnLifecycle(Lifecycle.State.STARTED) {
-                homeViewModel.emails.collect { data ->
-                    context?.sendEmail(data, googleMapsLocationUrl)
-                }
-            }
-        }
-    }
-
     private fun setupLocationPermissionRequest() {
         locationPermissionRequest = registerForActivityResult(
             ActivityResultContracts.RequestMultiplePermissions()
@@ -85,7 +63,7 @@ class HomeFragment : Fragment() {
                 } else -> {
                 sendEmailButton.isEnabled = false
                 Toast.makeText(context, "The app needs to access your location in order to send the email", Toast.LENGTH_LONG).show()
-                }
+            }
             }
         }
     }
@@ -94,7 +72,19 @@ class HomeFragment : Fragment() {
         locationPermissionRequest.launch(arrayOf(ACCESS_FINE_LOCATION, ACCESS_COARSE_LOCATION))
     }
 
-    private fun getLastLocation() {
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+
+        onClickSendEmailsButton()
+    }
+
+    private fun onClickSendEmailsButton() {
+        sendEmailButton.setOnClickListener {
+            sendEmailIfLocationPermissionIsGranted()
+        }
+    }
+
+    private fun sendEmailIfLocationPermissionIsGranted() {
         val fusedLocationClient = LocationServices.getFusedLocationProviderClient(requireContext())
 
         if (ActivityCompat.checkSelfPermission(
@@ -113,6 +103,16 @@ class HomeFragment : Fragment() {
                 val googleMapsLocationUrl = "http://maps.google.com/maps?q=$latitude,$longitude"
 
                 sendEmail(googleMapsLocationUrl)
+            }
+        }
+    }
+
+    private fun sendEmail(googleMapsLocationUrl: String) {
+        lifecycleScope.launch {
+            viewLifecycleOwner.repeatOnLifecycle(Lifecycle.State.STARTED) {
+                homeViewModel.emails.collect { emails ->
+                    context?.sendEmail(emails, googleMapsLocationUrl)
+                }
             }
         }
     }

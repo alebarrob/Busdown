@@ -48,7 +48,7 @@ class BasicInfoFragment : Fragment() {
             val emails = basicInfoViewModel.formatEmails(unformattedEmails)
             val action = BasicInfoFragmentDirections.actionBasicInfoFragmentToHomeFragment()
 
-            if (basicInfoViewModel.emailsFormatIsCorrect(emails)) {
+            if (basicInfoViewModel.emailsFormatIsCorrect(emails) && emails.isNotEmpty()) {
                 basicInfoViewModel.insertEmails(emails)
                 basicInfoTextInputLayout.isErrorEnabled = false
                 basicInfoViewModel.setShowBasicInfoFragment(false)

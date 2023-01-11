@@ -5,7 +5,7 @@ class EmailValidator {
         val pattern = android.util.Patterns.EMAIL_ADDRESS.pattern()
         val regex = Regex(pattern)
 
-        emails.forEach {  email -> if (!regex.matches(email)) return false }
+        emails.forEach { email -> if (!regex.matches(email)) return false }
         return true
     }
 }

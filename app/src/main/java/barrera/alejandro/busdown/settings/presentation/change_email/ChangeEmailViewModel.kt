@@ -10,6 +10,7 @@ import barrera.alejandro.busdown.core.domain.use_cases.CoreUseCases
 import barrera.alejandro.busdown.core.domain.use_cases.ValidateEmails
 import barrera.alejandro.busdown.core.util.UiEvent
 import barrera.alejandro.busdown.core.util.UiText
+import barrera.alejandro.busdown.settings.domain.use_case.SettingsUseCases
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.channels.Channel
 import kotlinx.coroutines.flow.receiveAsFlow
@@ -18,9 +19,10 @@ import javax.inject.Inject
 
 @HiltViewModel
 class ChangeEmailViewModel @Inject constructor(
+    private val settingsUseCases: SettingsUseCases,
     private val coreUseCases: CoreUseCases
 ) : ViewModel() {
-    private val _state = MutableLiveData<ChangeEmailState>()
+    private val _state = MutableLiveData(ChangeEmailState())
     val state: LiveData<ChangeEmailState> = _state
 
     private val _uiEvent = Channel<UiEvent>()
@@ -43,8 +45,12 @@ class ChangeEmailViewModel @Inject constructor(
                     is ValidateEmails.Result.Success -> {
                         val contacts = emails.map { it.toContact() }
 
+                        _state.value = state.value?.copy(
+                            showErrorMessage = false,
+                            errorMessage = null
+                        )
                         viewModelScope.launch {
-                            // DELETE CONTACTS
+                            settingsUseCases.deleteAllContactsExceptBusUp()
                             coreUseCases.insertAllContacts(contacts)
                             _uiEvent.send(
                                 UiEvent.ShowToast(
@@ -55,7 +61,11 @@ class ChangeEmailViewModel @Inject constructor(
 
                     }
                     is ValidateEmails.Result.Error -> {
-                        _state.value = state.value?.copy(showErrorMessage = true)
+                        _state.value = state.value?.copy(
+                            showErrorMessage = true,
+                            errorMessage = "Incorrect format. Remember to separate " +
+                                    "each email with commas, e.g. email1@gmail.com, email2@gmail.com"
+                        )
                     }
                 }
             }

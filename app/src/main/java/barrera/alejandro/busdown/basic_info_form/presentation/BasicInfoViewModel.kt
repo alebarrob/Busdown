@@ -20,13 +20,7 @@ class BasicInfoViewModel @Inject constructor(
     private val basicInfoUseCases: BasicInfoUseCases,
     private val coreUseCases: CoreUseCases
 ) : ViewModel() {
-    private val _state = MutableLiveData(
-        BasicInfoState(
-            emails = emptyList(),
-            errorMessage = "Incorrect format. Remember to separate " +
-    "each email with commas, e.g. email1@gmail.com, email2@gmail.com", // THIS SHOULD BE NULL
-            showErrorMessage = false
-        ))
+    private val _state = MutableLiveData(BasicInfoState())
     val state: LiveData<BasicInfoState> = _state
 
     private val _uiEvent = Channel<UiEvent>()
@@ -48,7 +42,11 @@ class BasicInfoViewModel @Inject constructor(
 
             }
             is ValidateEmails.Result.Error -> {
-                _state.value = state.value?.copy(showErrorMessage = true)
+                _state.value = state.value?.copy(
+                    showErrorMessage = true,
+                    errorMessage = "Incorrect format. Remember to separate " +
+                            "each email with commas, e.g. email1@gmail.com, email2@gmail.com"
+                )
             }
         }
     }

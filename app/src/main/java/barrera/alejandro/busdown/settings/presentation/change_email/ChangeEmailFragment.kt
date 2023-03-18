@@ -49,6 +49,8 @@ class ChangeEmailFragment : Fragment() {
     private fun observeState() {
         viewModel.state.observe(viewLifecycleOwner) { state ->
             changeEmailTextInputEditText.setText(state.emails.joinToString())
+            changeEmailTextInputLayout.isErrorEnabled = state.showErrorMessage
+            changeEmailTextInputLayout.error = state.errorMessage
         }
     }
 
@@ -61,7 +63,6 @@ class ChangeEmailFragment : Fragment() {
     private fun onClickAcceptButton() {
         changeEmailAcceptButton.setOnClickListener {
             val unformattedEmails = changeEmailTextInputEditText.text.toString()
-
             viewModel.onEvent(ChangeEmailEvent.OnClickAcceptButton(unformattedEmails))
         }
     }

@@ -7,7 +7,7 @@
 
     <fragment
         android:id="@+id/welcomeFragment"
-        android:name="barrera.alejandro.busdown.view.fragment.WelcomeFragment"
+        android:name="barrera.alejandro.busdown.welcome.presentation.WelcomeFragment"
         android:label="WelcomeFragment"
         tools:layout="@layout/fragment_welcome">
         <action
@@ -25,7 +25,7 @@
     </fragment>
     <fragment
         android:id="@+id/basicInfoFragment"
-        android:name="barrera.alejandro.busdown.view.fragment.BasicInfoFragment"
+        android:name="barrera.alejandro.busdown.basic_info_form.presentation.BasicInfoFragment"
         android:label="BasicInfoFragment"
         tools:layout="@layout/fragment_basic_info">
         <action
@@ -36,7 +36,7 @@
     </fragment>
     <fragment
         android:id="@+id/homeFragment"
-        android:name="barrera.alejandro.busdown.view.fragment.HomeFragment"
+        android:name="barrera.alejandro.busdown.home.presentation.HomeFragment"
         android:label="HomeFragment"
         tools:layout="@layout/fragment_home">
         <action
@@ -45,7 +45,7 @@
     </fragment>
     <fragment
         android:id="@+id/settingsFragment"
-        android:name="barrera.alejandro.busdown.view.fragment.SettingsFragment"
+        android:name="barrera.alejandro.busdown.settings.presentation.settings.SettingsFragment"
         android:label="SettingsFragment"
         tools:layout="@layout/fragment_settings">
         <action
@@ -62,12 +62,12 @@
     </fragment>
     <fragment
         android:id="@+id/changeEmailFragment"
-        android:name="barrera.alejandro.busdown.view.fragment.ChangeEmailFragment"
+        android:name="barrera.alejandro.busdown.settings.presentation.change_email.ChangeEmailFragment"
         android:label="ChangeEmailFragment"
         tools:layout="@layout/fragment_change_email" />
     <fragment
         android:id="@+id/termsAndConditionsFragment"
-        android:name="barrera.alejandro.busdown.view.fragment.TermsAndConditionsFragment"
+        android:name="barrera.alejandro.busdown.settings.presentation.terms_and_conditions.TermsAndConditionsFragment"
         android:label="TermsAndConditionsFragment"
         tools:layout="@layout/fragment_terms_and_conditions" />
 </navigation>

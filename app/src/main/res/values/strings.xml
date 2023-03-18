@@ -25,4 +25,6 @@
     <string name="fine_location_label">Accurate location</string>
     <string name="fine_location_description">Accurate location in order to send the email to your superiors</string>
 
+    <string name="modify_email_success">Email list successfully modified</string>
+
 </resources>
